@@ -38,8 +38,7 @@ module datamemory #(
       case (Funct3)
         3'b010:  //LW
         rd <= Dataout;
-        default: rd <= Dataout;
-        3'b00:  //LB
+        3'b000:  //LB
         rd <= Dataout;
         default: rd <= Dataout;
 
@@ -47,6 +46,10 @@ module datamemory #(
     end else if (MemWrite) begin
       case (Funct3)
         3'b010: begin  //SW
+          Wr <= 4'b1111;
+          Datain <= wd;
+        end
+        3'b000: begin  //SB
           Wr <= 4'b1111;
           Datain <= wd;
         end
