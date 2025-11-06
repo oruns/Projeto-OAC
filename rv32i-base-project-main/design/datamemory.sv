@@ -39,6 +39,10 @@ module datamemory #(
         3'b010:  //LW
         rd <= Dataout;
         default: rd <= Dataout;
+        3'b00:  //LB
+        rd <= Dataout;
+        default: rd <= Dataout;
+
       endcase
     end else if (MemWrite) begin
       case (Funct3)

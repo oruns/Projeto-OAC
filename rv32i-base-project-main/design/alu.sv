@@ -27,6 +27,8 @@ module alu#(
                     ALUResult = SrcA - SrcB;
             4'b1000:        // Equal
                     ALUResult = (SrcA == SrcB) ? 1 : 0;
+            4'b1100:        // SLT
+                    ALUResult = (SrcA < SrcB) ? 1 : 0;
         
             default:
                     ALUResult = 0;
