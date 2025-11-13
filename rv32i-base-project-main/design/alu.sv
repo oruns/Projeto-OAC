@@ -17,28 +17,40 @@ module alu#(
             case(Operation)
             4'b0000:        // AND
                     ALUResult = SrcA & SrcB;
+
             4'b0001:        // OR
                     ALUResult = SrcA | SrcB;
+
             4'b0010:        // ADD
                     ALUResult = SrcA + SrcB;
+
             4'b0011:        // XOR
                     ALUResult = SrcA ^ SrcB;
+
             4'b0100:        // SLLI
-                    ALUResult = SrcA << SrcB;
+                    ALUResult = SrcA << SrcB; 
+
             4'b0101:        // SRLI
                     ALUResult = SrcA >> SrcB;
+
             4'b0110:        // SUB
                     ALUResult = SrcA - SrcB;
+
             4'b0111:        // SRAI
-                    ALUResult = SrcA >>> SrcB;
+                    ALUResult = SrcA >>> SrcB; //Perguntar ao professor
+
             4'b1000:        // Equal
                     ALUResult = (SrcA == SrcB) ? 1 : 0;
+
             4'b1100:        // SLT
                     ALUResult = (SrcA < SrcB) ? 1 : 0;
+
             4'b1101:        // ADDI
                     ALUResult = SrcA + SrcB; //imm é transformado em SrcB pelo srcbmux
+
             4'b1110:        // SLTI
                     ALUResult = (SrcA < SrcB) ? 1 : 0;
+
         
             default:
                     ALUResult = 0;
