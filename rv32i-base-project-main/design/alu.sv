@@ -35,6 +35,8 @@ module alu#(
                     ALUResult = (SrcA == SrcB) ? 1 : 0;
             4'b1100:        // SLT
                     ALUResult = (SrcA < SrcB) ? 1 : 0;
+            4'b1101:        // ADDI
+                    ALUResult = SrcA + SrcB; //imm é transformado em SrcB pelo srcbmux
         
             default:
                     ALUResult = 0;
