@@ -25,11 +25,11 @@ module Controller (
   assign LW = 7'b0000011;  //LOAD
   assign SW = 7'b0100011;  //STORE
   assign BR = 7'b1100011;  //BRANCH
-  assign IMM = 7'b1100011;  //IMEDIATO
+  assign IMM = 7'b0010011;  //IMEDIATO
 
   assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == IMM);
   assign MemtoReg = (Opcode == LW);
-    assign RegWrite = (Opcode == R_TYPE || Opcode == LW || Opcode == IMM);
+  assign RegWrite = (Opcode == R_TYPE || Opcode == LW || Opcode == IMM);
   assign MemRead = (Opcode == LW);
   assign MemWrite = (Opcode == SW);
   assign ALUOp[0] = (Opcode == BR || Opcode == IMM);
