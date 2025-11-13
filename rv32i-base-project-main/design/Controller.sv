@@ -29,7 +29,7 @@ module Controller (
 
   assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == IMM);
   assign MemtoReg = (Opcode == LW);
-  assign RegWrite = (Opcode == R_TYPE || Opcode == LW || Opcode == Imm);
+    assign RegWrite = (Opcode == R_TYPE || Opcode == LW || Opcode == IMM);
   assign MemRead = (Opcode == LW);
   assign MemWrite = (Opcode == SW);
   assign ALUOp[0] = (Opcode == BR || Opcode == IMM);
