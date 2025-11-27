@@ -34,7 +34,10 @@ module ALUController (
       ((ALUOp == 2'b10) && (Funct3 == 3'b010)) ||  // R\I-< slt
       ((ALUOp == 2'b11) && (Funct3 == 3'b010));  // R\I-< slti
 
-  assign Operation[3] = (ALUOp == 2'b01) ||  // BEQ, BNE, BGE, BLT
+  assign Operation[3] = (ALUOp == 2'b01) ||  // BEQ 
+      ((ALUOp == 2'b01) && (Funct3 == 3'b001)) ||  // BNE (1001)
+      ((ALUOp == 2'b01) && (Funct3 == 3'b101)) ||  // BGE (1010) 
+      ((ALUOp == 2'b01) && (Funct3 == 3'b100)) ||  // BLT (1011)
       ((ALUOp == 2'b11) && (Funct3 == 3'b000)) ||  // ADDI
       ((ALUOp == 2'b10) && (Funct3 == 3'b010)) ||  // R\I-< slt
       ((ALUOp == 2'b11) && (Funct3 == 3'b010));  // R\I-< slti
