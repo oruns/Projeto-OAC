@@ -39,7 +39,7 @@ module alu#(
             4'b0111:        // SRAI
                     ALUResult = SrcA >>> SrcB; //Perguntar ao professor
 
-            4'b1000:        // Equal
+            4'b1000:        // BEQ
                     ALUResult = (SrcA == SrcB) ? 1 : 0;
 
             4'b1100:        // SLT
