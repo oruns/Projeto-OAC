@@ -15,30 +15,32 @@ module ALUController (
       ((ALUOp == 3'b011) && (Funct3 == 3'b101) && (Funct7 == 7'b0000000)) ||  // R\I->>> srli
       ((ALUOp == 3'b011) && (Funct3 == 3'b101) && (Funct7 == 7'b0100000)) ||  // R\I->>> srai
       ((ALUOp == 3'b001) && (Funct3 == 3'b001)) || // BNE (1001)
-      ((ALUOp == 3'b001) && (Funct3 == 3'b100));   // BLT (1011) 
+      ((ALUOp == 3'b001) && (Funct3 == 3'b100)) || // BLT (1011)
+      ((ALUOp == 3'b100)); // JAL/JALR
 
   assign Operation[1] = (ALUOp == 3'b000) ||  // LW\SW
-    ((ALUOp == 3'b010) && (Funct3 == 3'b000)) ||  // R\I-add
-    ((ALUOp == 3'b010) && (Funct3 == 3'b000) && (Funct7 == 3'b0100000)) ||  // R\I-sub
-    ((ALUOp == 3'b010) && (Funct3 == 3'b100) && (Funct7 == 7'b0000000)) ||  // R\I->> xor
-    ((ALUOp == 3'b011) && (Funct3 == 3'b101) && (Funct7 == 7'b0100000)) ||  // R\I->>> srai
-    ((ALUOp == 3'b011) && (Funct3 == 3'b010)) ||  // R\I-< slti
-    ((ALUOp == 3'b001) && (Funct3 == 3'b101)) || // BGE (1010)
-    ((ALUOp == 3'b001) && (Funct3 == 3'b100));   // BLT (1011) 
-
+      ((ALUOp == 3'b010) && (Funct3 == 3'b000)) ||  // R\I-add
+      ((ALUOp == 3'b010) && (Funct3 == 3'b000) && (Funct7 == 3'b0100000)) ||  // R\I-sub
+      ((ALUOp == 3'b010) && (Funct3 == 3'b100) && (Funct7 == 7'b0000000)) ||  // R\I->> xor
+      ((ALUOp == 3'b011) && (Funct3 == 3'b101) && (Funct7 == 7'b0100000)) ||  // R\I->>> srai
+      ((ALUOp == 3'b011) && (Funct3 == 3'b010)) || // R\I-< slti
+      ((ALUOp == 3'b001) && (Funct3 == 3'b101)) || // BGE (1010)
+      ((ALUOp == 3'b001) && (Funct3 == 3'b100)) || // BLT (1011) 
+      ((ALUOp == 3'b100)); // JAL/JALR
   assign Operation[2] =  ((ALUOp == 3'b010) && (Funct3 == 3'b000) && (Funct7 == 3'b0100000)) ||  // R\I-sub
       ((ALUOp == 3'b011) && (Funct3 == 3'b000)) ||  // ADDI
       ((ALUOp == 3'b011) && (Funct3 == 3'b101) && (Funct7 == 7'b0000000)) ||  // R\I->>> srli
       ((ALUOp == 3'b011) && (Funct3 == 3'b101) && (Funct7 == 7'b0100000)) ||  // R\I->>> srai
       ((ALUOp == 3'b011) && (Funct3 == 3'b001)) ||  // R\I-<< slli
       ((ALUOp == 3'b010) && (Funct3 == 3'b010)) ||  // R\I-< slt
-      ((ALUOp == 3'b011) && (Funct3 == 3'b010));  // R\I-< slti
-
+      ((ALUOp == 3'b011) && (Funct3 == 3'b010)) ||  // R\I-< slti
+      ((ALUOp == 3'b100)); // JAL/JALR
   assign Operation[3] = (ALUOp == 3'b001) ||  // BEQ 
       ((ALUOp == 3'b001) && (Funct3 == 3'b001)) ||  // BNE (1001)
       ((ALUOp == 3'b001) && (Funct3 == 3'b101)) ||  // BGE (1010) 
       ((ALUOp == 3'b001) && (Funct3 == 3'b100)) ||  // BLT (1011)
       ((ALUOp == 3'b011) && (Funct3 == 3'b000)) ||  // ADDI
       ((ALUOp == 3'b010) && (Funct3 == 3'b010)) ||  // R\I-< slt
-      ((ALUOp == 3'b011) && (Funct3 == 3'b010));  // R\I-< slti
+      ((ALUOp == 3'b011) && (Funct3 == 3'b010)) ||  // R\I-< slti
+      ((ALUOp == 3'b100)); // JAL/JALR
 endmodule
