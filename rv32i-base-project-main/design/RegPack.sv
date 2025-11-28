@@ -12,7 +12,7 @@ package Pipe_Buf_Reg_PKG;
     logic        RegWrite;
     logic        MemRead;
     logic        MemWrite;
-    logic [1:0]  ALUOp;
+    logic [2:0]  ALUOp;
     logic        Branch;
     logic [8:0]  Curr_Pc;
     logic [31:0] RD_One;
