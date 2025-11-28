@@ -27,6 +27,7 @@ module Controller (
   assign BR = 7'b1100011;  //BRANCH
   assign IMM = 7'b0010011;  //IMEDIATO
   assign UJ_TYPE = 7'b1101111;  //JAL
+  assign JALR = 7'b1100111;  // JALR
 
   assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == IMM);
   assign MemtoReg = (Opcode == LW);
@@ -35,6 +36,6 @@ module Controller (
   assign MemWrite = (Opcode == SW);
   assign ALUOp[0] = (Opcode == BR || Opcode == IMM);
   assign ALUOp[1] = (Opcode == R_TYPE || Opcode == IMM);
-  assign ALUOp[2] = (Opcode == UJ_TYPE);
-  assign Branch = (Opcode == BR || UJ_TYPE);
+  assign ALUOp[2] = (Opcode == UJ_TYPE || Opcode == JALR);
+  assign Branch = (Opcode == BR || Opcode == UJ_TYPE || Opcode == JALR);
 endmodule
