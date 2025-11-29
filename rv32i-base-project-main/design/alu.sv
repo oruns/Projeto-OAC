@@ -59,10 +59,7 @@ module alu#(
 
             4'b1110:        // SLTI
                     ALUResult = (SrcA < SrcB) ? 1 : 0;
-
-            4'b1111:        // JUMP
-                    ALUResult = 1; // Desvio incondicional (jal e jalr)
-        
+                    
             default:
                     ALUResult = 0;
             endcase

@@ -16,6 +16,7 @@ module Controller (
     output logic MemRead,  //Data memory contents designated by the address input are put on the Read data output
     output logic MemWrite, //Data memory contents designated by the address input are replaced by the value on the Write data input.
     output logic [1:0] ALUOp,  //00: LW/SW; 01:Branch; 10: Rtype
+    output logic Jump, // Sinal para desvio incondicional na BranchUnit
     output logic Branch  //0: branch is not taken; 1: branch is taken
 );
 
@@ -36,6 +37,6 @@ module Controller (
   assign MemWrite = (Opcode == SW);
   assign ALUOp[0] = (Opcode == BR || Opcode == IMM);
   assign ALUOp[1] = (Opcode == R_TYPE || Opcode == IMM);
-  assign ALUOp[2] = (Opcode == UJ_TYPE || Opcode == JALR);
-  assign Branch = (Opcode == BR || Opcode == UJ_TYPE || Opcode == JALR);
+  assign Jump = (Opcode == UJ_TYPE || Opcode == JALR);
+  assign Branch = (Opcode == BR);
 endmodule
