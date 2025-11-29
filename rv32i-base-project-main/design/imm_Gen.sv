@@ -19,7 +19,7 @@ module imm_Gen (
 
       7'b1100011:  /*B-type*/
       Imm_out = {
-        inst_code[31] ? 19'h3FFFF : 19'b0,
+        inst_code[31] ? 19'h7FFFF : 19'b0,
         inst_code[31],
         inst_code[7],
         inst_code[30:25],
@@ -29,7 +29,7 @@ module imm_Gen (
 
       7'b1101111: /*UJ-TYPE*/
       Imm_out = {
-        inst_code[31] ? 11'h1FF : 11'b0,
+        inst_code[31] ? 11'h7FF : 11'b0,
         inst_code[31],
         inst_code[19:12],
         inst_code[20],
