@@ -18,6 +18,7 @@ module Datapath #(
     MemWrite,  // Register file or Immediate MUX // Memroy Writing Enable
     MemRead,  // Memroy Reading Enable
     Jump, // Jump Enable
+    JALRsel, // JALR Enable
     Branch,  // Branch Enable
     input  logic [          1:0] ALUOp,
     input  logic [ALU_CC_W -1:0] ALU_CC,         // ALU Control Code ( input of the ALU )
@@ -44,7 +45,7 @@ module Datapath #(
   logic [DATA_W-1:0] Reg1, Reg2;
   logic [DATA_W-1:0] ReadData;
   logic [DATA_W-1:0] SrcB, ALUResult;
-  logic [DATA_W-1:0] ExtImm, BrImm, Old_PC_Four, BrPC;
+  logic [DATA_W-1:0] ExtImm, BrImm, Old_PC_Four, BrPC, BrPCFinal;
   logic [DATA_W-1:0] WrmuxSrc;
   logic PcSel;  // mux select / flush signal
   logic [1:0] FAmuxSel;
@@ -64,9 +65,15 @@ module Datapath #(
       9'b100,
       PCPlus4
   );
+  mux2 #(32) jalrmux (
+      BrPC,
+      ALUResult,
+      JALRsel,
+      BrPCFinal
+  );
   mux2 #(9) pcmux (
       PCPlus4,
-      BrPC[PC_W-1:0],
+      BrPCFinal[PC_W-1:0],
       PcSel,
       Next_PC
   );

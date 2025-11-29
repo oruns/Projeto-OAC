@@ -16,7 +16,7 @@ module ALUController (
       ((ALUOp == 2'b11) && (Funct3 == 3'b101) && (Funct7 == 7'b0100000)) ||  // R\I->>> srai
       ((ALUOp == 2'b01) && (Funct3 == 3'b001)) || // BNE (1001)
       ((ALUOp == 2'b01) && (Funct3 == 3'b100)) || // BLT (1011)
-  assign Operation[1] = (ALUOp == 2'b00) ||  // LW\SW
+  assign Operation[1] = (ALUOp == 2'b00) ||  // add-JALR
       ((ALUOp == 2'b10) && (Funct3 == 3'b000)) ||  // R\I-add
       ((ALUOp == 2'b10) && (Funct3 == 3'b000) && (Funct7 == 3'b0100000)) ||  // R\I-sub
       ((ALUOp == 2'b10) && (Funct3 == 3'b100) && (Funct7 == 7'b0000000)) ||  // R\I->> xor

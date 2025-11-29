@@ -17,6 +17,7 @@ module Controller (
     output logic MemWrite, //Data memory contents designated by the address input are replaced by the value on the Write data input.
     output logic [1:0] ALUOp,  //00: LW/SW; 01:Branch; 10: Rtype
     output logic Jump, // Sinal para desvio incondicional na BranchUnit
+    output logic JALRsel, // Sinal do mux para escolher calculo entre jal e jalr
     output logic Branch  //0: branch is not taken; 1: branch is taken
 );
 
@@ -30,7 +31,7 @@ module Controller (
   assign UJ_TYPE = 7'b1101111;  //JAL
   assign JALR = 7'b1100111;  // JALR
 
-  assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == IMM);
+  assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == IMM || Opcode == UJ_TYPE || Opcode == JALR);
   assign MemtoReg = (Opcode == LW);
   assign RegWrite = (Opcode == R_TYPE || Opcode == LW || Opcode == IMM);
   assign MemRead = (Opcode == LW);
@@ -38,5 +39,6 @@ module Controller (
   assign ALUOp[0] = (Opcode == BR || Opcode == IMM);
   assign ALUOp[1] = (Opcode == R_TYPE || Opcode == IMM);
   assign Jump = (Opcode == UJ_TYPE || Opcode == JALR);
+  assign JALRsel = (Opcode == JALR);
   assign Branch = (Opcode == BR);
 endmodule
