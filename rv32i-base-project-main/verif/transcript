@@ -76,3 +76,79 @@ do runtb_top
 # C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
 #     while executing
 # "vlog -f compile_verilog"
+do runtb_top
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:40:33 on Dec 04,2025
+# vlog -reportprogress 300 -f compile_verilog 
+# -- Compiling module adder
+# -- Compiling module ramOnChip32
+# -- Compiling module ramOnChipData
+# -- Compiling module Memoria32
+# -- Compiling module Memoria32Data
+# -- Compiling package Pipe_Buf_Reg_PKG
+# -- Compiling module RegFile
+# -- Compiling module alu
+# -- Compiling module ALUController
+# ** Error: (vlog-13069) ./../design/ALUController.sv(19): near "assign": syntax error, unexpected assign.
+# ** Error: ./../design/BranchUnit.sv(21): (vlog-2730) Undefined variable: 'Cur_PC'.
+# ** Error: ./../design/BranchUnit.sv(23): (vlog-2730) Undefined variable: 'Jalr'.
+# ** Error: ./../design/BranchUnit.sv(23): (vlog-2730) Undefined variable: 'AluResult'.
+# ** Error: ./../design/BranchUnit.sv(23): (vlog-2730) Undefined variable: 'Imm'.
+# ** Error: ./../design/BranchUnit.sv(25): (vlog-2730) Undefined variable: 'Branch'.
+# ** Error: ./../design/BranchUnit.sv(25): (vlog-2730) Undefined variable: 'Jump'.
+# -- Compiling module Controller
+# ** Error: ./../design/Controller.sv(42): (vlog-2730) Undefined variable: 'OPCODE'.
+# -- Compiling module flopr
+# -- Compiling module ForwardingUnit
+# -- Compiling module HazardDetection
+# -- Compiling module imm_Gen
+# -- Compiling module mux2
+# -- Compiling module mux4
+# -- Compiling module datamemory
+# -- Compiling module instructionmemory
+# End time: 11:40:33 on Dec 04,2025, Elapsed time: 0:00:00
+# Errors: 8, Warnings: 0
+# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runtb_top line 4
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -f compile_verilog"
+do runtb_top
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 11:41:49 on Dec 04,2025
+# vlog -reportprogress 300 -f compile_verilog 
+# -- Compiling module adder
+# -- Compiling module ramOnChip32
+# -- Compiling module ramOnChipData
+# -- Compiling module Memoria32
+# -- Compiling module Memoria32Data
+# -- Compiling package Pipe_Buf_Reg_PKG
+# -- Compiling module RegFile
+# -- Compiling module alu
+# -- Compiling module ALUController
+# ** Error: (vlog-13069) ./../design/ALUController.sv(19): near "assign": syntax error, unexpected assign.
+# ** Error: ./../design/BranchUnit.sv(21): (vlog-2730) Undefined variable: 'Cur_PC'.
+# ** Error: ./../design/BranchUnit.sv(23): (vlog-2730) Undefined variable: 'Jalr'.
+# ** Error: ./../design/BranchUnit.sv(23): (vlog-2730) Undefined variable: 'AluResult'.
+# ** Error: ./../design/BranchUnit.sv(23): (vlog-2730) Undefined variable: 'Imm'.
+# ** Error: ./../design/BranchUnit.sv(25): (vlog-2730) Undefined variable: 'Branch'.
+# ** Error: ./../design/BranchUnit.sv(25): (vlog-2730) Undefined variable: 'Jump'.
+# -- Compiling module Controller
+# ** Error: ./../design/Controller.sv(42): (vlog-2730) Undefined variable: 'OPCODE'.
+# -- Compiling module flopr
+# -- Compiling module ForwardingUnit
+# -- Compiling module HazardDetection
+# -- Compiling module imm_Gen
+# -- Compiling module mux2
+# -- Compiling module mux4
+# -- Compiling module datamemory
+# -- Compiling module instructionmemory
+# End time: 11:41:49 on Dec 04,2025, Elapsed time: 0:00:00
+# Errors: 8, Warnings: 0
+# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./runtb_top line 4
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -f compile_verilog"
