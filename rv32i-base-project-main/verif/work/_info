@@ -11,7 +11,7 @@ cModel Technology
 Z0 dC:/ProjetoOAC/Projeto-OAC/rv32i-base-project-main/verif
 vadder
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1764859843
+Z2 !s110 1764860616
 !i10b 1
 !s100 J@Bf42a<9Q9R;nJSZl2>B2
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -28,7 +28,7 @@ Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z8 !s108 1764859843.000000
+Z8 !s108 1764860616.000000
 !s107 ./tb_top.sv|./../design/RISC_V.sv|./../design/Datapath.sv|./../design/instructionmemory.sv|./../design/datamemory.sv|./../design/mux4.sv|./../design/mux2.sv|./../design/imm_Gen.sv|./../design/HazardDetection.sv|./../design/ForwardingUnit.sv|./../design/flopr.sv|./../design/Controller.sv|./../design/BranchUnit.sv|./../design/ALUController.sv|./../design/alu.sv|./../design/RegFile.sv|./../design/RegPack.sv|./../design/Memoria32Data.sv|./../design/Memoria32.sv|./../design/ramOnChipData.v|./../design/ramOnChip32.v|./../design/adder.sv|
 Z9 !s90 -reportprogress|300|-f|compile_verilog|
 !i113 1
@@ -113,13 +113,13 @@ vBranchUnit
 R1
 R2
 !i10b 1
-!s100 HQ8m<2Lz;^dUM4^0?4On@3
+!s100 Sfi07K^Z2PbJMg1UA]7Wa1
 R3
-If@YD[f;QiYea48bCoM]1B2
+IYE=b36aL9zRY>>Uz6n9]U0
 R4
 S1
 R0
-w1764859296
+w1764860236
 8./../design/BranchUnit.sv
 F./../design/BranchUnit.sv
 !i122 0
@@ -138,13 +138,13 @@ vController
 R1
 R2
 !i10b 1
-!s100 zkEd@6k;KDXU9_YEz6o]Q0
+!s100 Zj9eS13<VE;61b>BoMmiA0
 R3
-IeKHc4N7`adSnZ5@A=eeG@1
+IKROb_jWgCCEGzBN;Ca_lF3
 R4
 S1
 R0
-w1764859759
+w1764860224
 8./../design/Controller.sv
 F./../design/Controller.sv
 !i122 0

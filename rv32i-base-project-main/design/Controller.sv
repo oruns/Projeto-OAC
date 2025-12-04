@@ -31,7 +31,7 @@ module Controller (
   assign UJ_TYPE = 7'b1101111;  //JAL
   assign JALR = 7'b1100111;  // JALR
 
-  assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == IMM);
+  assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == IMM || Opcode == UJ_TYPE || Opcode == JALR);
   assign MemtoReg = (Opcode == LW);
   assign RegWrite = (Opcode == R_TYPE || Opcode == LW || Opcode == IMM);
   assign MemRead = (Opcode == LW);
