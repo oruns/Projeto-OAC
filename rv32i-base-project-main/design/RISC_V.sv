@@ -35,6 +35,7 @@ module riscv #(
       MemWrite,
       ALUop,
       Jump,
+      Jalr,
       Branch
   );
 
@@ -54,6 +55,7 @@ module riscv #(
       MemWrite,
       MemRead,
       Jump,
+      Jalr,
       Branch,
       ALUop,
       Operation,

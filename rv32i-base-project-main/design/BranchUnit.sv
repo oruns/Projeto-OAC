@@ -7,6 +7,7 @@ module BranchUnit #(
     input logic [31:0] Imm,
     input logic Branch,
     input logic Jump,
+    input logic Jalr,
     input logic [31:0] AluResult,
     output logic [31:0] PC_Imm,
     output logic [31:0] PC_Four,
@@ -19,7 +20,7 @@ module BranchUnit #(
 
   assign PC_Full = {23'b0, Cur_PC};
 
-  assign PC_Imm = PC_Full + Imm;
+  assign PC_Imm = Jalr ? Aluresult + Imm : PC_Full + Imm;
   assign PC_Four = PC_Full + 32'b100;
   assign Branch_Sel = ((Branch && AluResult[0]) || Jump);  // 0:Branch is taken; 1:Branch is not taken
 
