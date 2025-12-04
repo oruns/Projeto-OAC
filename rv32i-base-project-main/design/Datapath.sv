@@ -45,7 +45,7 @@ module Datapath #(
   logic [DATA_W-1:0] Reg1, Reg2;
   logic [DATA_W-1:0] ReadData;
   logic [DATA_W-1:0] SrcB, ALUResult;
-  logic [DATA_W-1:0] ExtImm, BrImm, Old_PC_Four, BrPC;
+  logic [DATA_W-1:0] ExtImm, BrImm, Old_PC_Four, BrPC, AluOrPCFour;
   logic [DATA_W-1:0] WrmuxSrc;
   logic PcSel;  // mux select / flush signal
   logic [1:0] FAmuxSel;
@@ -245,6 +245,7 @@ module Datapath #(
       C.MemtoReg <= 0;
       C.MemRead <= 0;
       C.MemWrite <= 0;
+      C.Jump <= 0;
       C.Pc_Imm <= 0;
       C.Pc_Four <= 0;
       C.Imm_Out <= 0;
@@ -258,6 +259,7 @@ module Datapath #(
       C.MemtoReg <= B.MemtoReg;
       C.MemRead <= B.MemRead;
       C.MemWrite <= B.MemWrite;
+      C.Jump <= B.Jump;
       C.Pc_Imm <= BrImm;
       C.Pc_Four <= Old_PC_Four;
       C.Imm_Out <= B.ImmG;
@@ -293,6 +295,7 @@ module Datapath #(
         begin
       D.RegWrite <= 0;
       D.MemtoReg <= 0;
+      D.Jump <= 0;
       D.Pc_Imm <= 0;
       D.Pc_Four <= 0;
       D.Imm_Out <= 0;
@@ -302,6 +305,7 @@ module Datapath #(
     end else begin
       D.RegWrite <= C.RegWrite;
       D.MemtoReg <= C.MemtoReg;
+      D.Jump <= C.Jump;
       D.Pc_Imm <= C.Pc_Imm;
       D.Pc_Four <= C.Pc_Four;
       D.Imm_Out <= C.Imm_Out;
@@ -311,10 +315,15 @@ module Datapath #(
       D.Curr_Instr <= C.Curr_Instr;  //Debug Tmp
     end
   end
-
+  mux2 #(32) alupc4mux (
+      D.Alu_Result,
+      D.Pc_Four,
+      D.Jump,
+      AluOrPCFour
+  );
   //--// The LAST Block
   mux2 #(32) resmux (
-      D.Alu_Result,
+      AluOrPCFour,
       D.MemReadData,
       D.MemtoReg,
       WrmuxSrc
