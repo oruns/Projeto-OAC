@@ -21,7 +21,7 @@ module Controller (
     output logic Branch  //0: branch is not taken; 1: branch is taken
 );
 
-  logic [6:0] R_TYPE, LW, SW, BR, IMM;
+  logic [6:0] R_TYPE, LW, SW, BR, IMM, UJ_TYPE, JALR;
 
   assign R_TYPE = 7'b0110011;  //REGISTRADORES
   assign LW = 7'b0000011;  //LOAD
@@ -39,6 +39,6 @@ module Controller (
   assign ALUOp[0] = (Opcode == BR || Opcode == IMM);
   assign ALUOp[1] = (Opcode == R_TYPE || Opcode == IMM);
   assign Jump = (Opcode == UJ_TYPE || Opcode == JALR);
-  assign Jalr = (OPCODE == JALR);
+  assign Jalr = (Opcode == JALR);
   assign Branch = (Opcode == BR);
 endmodule
