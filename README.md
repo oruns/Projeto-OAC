@@ -7,7 +7,7 @@ Relatório do Projeto RISC-V Pipeline
 Anderson  Vitor  Leoncio  de  Lima<avll>,
 Iago Lopes da Silva<ils4>,
 Pedro Henrique Santana Silva<phss2>,
-Yago Kauan Mendes Silva<ykms>,
+Yago Kauan Mendes Silva<ykms>
 
 Data de entrega: 11/12/25
 
@@ -257,6 +257,7 @@ Além disso:
 - A  memória  apresentou  funcionamento  adequado  tanto  para  leituras  como  para escritas parciais.
 
 Dessa forma, o processador produzido mostrou-se estável, funcional e capaz de executar corretamente o subconjunto de instruções esperado, validando o projeto desenvolvido pela equipe.
+
 
 
 
