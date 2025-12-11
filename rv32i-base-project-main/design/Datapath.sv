@@ -19,6 +19,7 @@ module Datapath #(
     MemRead,  // Memroy Reading Enable
     Jump, // Jump Enable
     Jalr, // Jalr Enable
+    Halt_com, // HALT
     Branch,  // Branch Enable
     input  logic [          1:0] ALUOp,
     input  logic [ALU_CC_W -1:0] ALU_CC,         // ALU Control Code ( input of the ALU )
@@ -165,6 +166,7 @@ module Datapath #(
       B.Branch <= Branch;
       B.Jump <= Jump;
       B.Jalr <= Jalr;
+      B.Halt_com <= Halt_com;
       B.Curr_Pc <= A.Curr_Pc;
       B.RD_One <= Reg1;
       B.RD_Two <= Reg2;
@@ -230,6 +232,7 @@ module Datapath #(
       B.Branch,
       B.Jump,
       B.Jalr,
+      B.Halt_com,
       ALUResult,
       BrImm,
       Old_PC_Four,

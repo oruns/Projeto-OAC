@@ -18,10 +18,11 @@ module Controller (
     output logic [1:0] ALUOp,  //00: LW/SW; 01:Branch; 10: Rtype
     output logic Jump, // Sinal para desvio incondicional na BranchUnit
     output logic Jalr,
+    output logic Halt_com,
     output logic Branch  //0: branch is not taken; 1: branch is taken
 );
 
-  logic [6:0] R_TYPE, LW, SW, BR, IMM, UJ_TYPE, JALR;
+  logic [6:0] R_TYPE, LW, SW, BR, IMM, UJ_TYPE, JALR, HALT;
 
   assign R_TYPE = 7'b0110011;  //REGISTRADORES
   assign LW = 7'b0000011;  //LOAD
@@ -30,6 +31,7 @@ module Controller (
   assign IMM = 7'b0010011;  //IMEDIATO
   assign UJ_TYPE = 7'b1101111;  //JAL
   assign JALR = 7'b1100111;  // JALR
+  assign HALT = 7'b1111111; // HALT nível lógico 1 no Opcode
 
   assign ALUSrc = (Opcode == LW || Opcode == SW || Opcode == IMM || Opcode == UJ_TYPE || Opcode == JALR);
   assign MemtoReg = (Opcode == LW);
@@ -41,4 +43,5 @@ module Controller (
   assign Jump = (Opcode == UJ_TYPE || Opcode == JALR);
   assign Jalr = (Opcode == JALR);
   assign Branch = (Opcode == BR);
+  assign Halt_com = (Opcode == HALT);
 endmodule
